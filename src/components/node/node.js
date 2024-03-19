@@ -1,4 +1,4 @@
-import {getTreeBranchPath, interpolateColour} from "../../modules/GUIHelper";
+import {getTreeBranchPath, interpolateColour} from "../../modules/gui-helper";
 import "./node.css"
 
 /**

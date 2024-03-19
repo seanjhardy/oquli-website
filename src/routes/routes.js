@@ -1,6 +1,6 @@
 import React from 'react';
 import {HashRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
-import {TreePage} from '../screens/tree/treePage';
+import {TreePage} from '../screens/tree/tree-page';
 
 const RouteManager = () => {
   return (

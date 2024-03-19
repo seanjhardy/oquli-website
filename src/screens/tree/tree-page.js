@@ -1,18 +1,22 @@
 import "./tree.css"
 import {useRef, useState} from "react";
-import {TreeView} from "./treeView";
+import {TreeView} from "./tree-view";
 import {TreeNodePopup} from "./tree-node-popup";
 
 export const TreePage = ({}) => {
   const ref = useRef();
   const [popup, setPopup] = useState(null)
+
+  // Defines the tree structure and data
   const [root, setRoot] = useState({
     title: "Scout",
     userInput: 0.56,
     funding: 0.6,
     softwareCompletion: 0.7,
     betaProgress: 0.45,
+    //Background optional
     background: require("../../assets/images/backgrounds/placeholder.png"),
+    //Icon optional
     icon: require("../../assets/images/icons/scout.png"),
     children: [
       {

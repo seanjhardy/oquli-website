@@ -15,7 +15,9 @@ export const TreeNodePopup = ({popup, onClose}) => {
           <img src={popup.background} className={"node-popup-background"}/>
         )}
         <div className={"node-popup-title-row"}>
-          <img src={popup.icon} style={{objectFit: "contain", width: 50, height: 50}}/>
+          {popup.icon && (
+            <img src={popup.icon} style={{objectFit: "contain", width: 50, height: 50}}/>
+          )}
           <span style={{fontSize: 35, fontWeight: 600}}>
             {popup?.title}
           </span>
