@@ -1,0 +1,195 @@
+:root {
+    --primary: #E7AF20
+}
+
+.tree-page {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.tree-view {
+    position: relative;
+    display: inline-block;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+@media only screen and (max-width: 1000px) {
+    .tree-view{
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+}
+
+.tree-view-inner {
+    position: relative;
+    min-width: 1000px;
+}
+
+.node-popup {
+    position: relative;
+    background-color: #111111;
+    border: solid 3px var(--primary);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.node-popup-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.node-popup-title-row {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    height: 80px;
+    padding: 20px;
+    width: 100%;
+    flex-direction: row;
+    gap: 20px;
+    background: linear-gradient(to bottom, #11111100, #111111 60%);
+}
+
+.close-btn {
+    position: absolute;
+    margin: 10px;
+    top: 0;
+    right: 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    z-index: 999;
+    color: white;
+    font-size: 30px;
+    width: 40px;
+    cursor: pointer;
+    height: 40px;
+    transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+}
+.close-btn:hover {
+    transform: scale(1.1)
+}
+
+.node-popup span {
+    font-size: 20px;
+    font-family: SecularOne, sans-serif;
+    font-weight: 500;
+}
+
+.popup-data-grid {
+    display: grid;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    padding: 20px;
+    columns: 2;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%/1, max(200px, 100%/3)), 1fr));
+}
+
+.popup-data-field {
+    background-color: #181818;
+    border: 2px solid #333333;
+    border-radius: 15px;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 20px 20px 20px;
+    box-shadow: #00000080 0 5px 5px;
+    -o-box-shadow: #00000080 0 5px 5px;
+    -moz-box-shadow: #00000080 0 5px 5px;
+    -webkit-box-shadow: #00000080 0 5px 5px;
+}
+
+.popup-data-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.popup-data-bar span {
+    min-width: 50px;
+    text-align: right;
+}
+
+.progress-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #444444;
+    border: solid 2px #555555;
+    border-radius: 15px;
+    height: 10px;
+    flex: 1;
+    box-shadow: #00000080 0 5px 5px;
+    -o-box-shadow: #00000080 0 5px 5px;
+    -moz-box-shadow: #00000080 0 5px 5px;
+    -webkit-box-shadow: #00000080 0 5px 5px;
+}
+
+.progress {
+    position: absolute;
+    left: -3px;
+    height: calc(100% + 3px);
+    border-radius: inherit;
+    background-color: var(--primary);
+}
+
+.progress-circle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: solid 3px var(--primary);
+    background-color: #111111;
+    border-radius: 100%;
+    box-shadow: #00000080 0 5px 5px;
+    -o-box-shadow: #00000080 0 5px 5px;
+    -moz-box-shadow: #00000080 0 5px 5px;
+    -webkit-box-shadow: #00000080 0 5px 5px;
+}
+
+.popup-btn {
+    padding: 10px 40px 10px 40px;
+    border: var(--primary) 3px solid;
+    background-color: #222222;
+    border-radius: 10px;
+    box-shadow: #00000080 0 5px 5px;
+    -o-box-shadow: #00000080 0 5px 5px;
+    -moz-box-shadow: #00000080 0 5px 5px;
+    -webkit-box-shadow: #00000080 0 5px 5px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.popup-btn:hover {
+    transform: scale(1.05);
+    background: var(--primary);
+}
+
+.popup-btn span {
+    font-weight: 600;
+    color: white;
+}
+.popup-btn:hover span {
+    font-weight: 600;
+    color: #222222
+}
