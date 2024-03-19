@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import {Tree} from "../../components/tree/tree";
+import {isMobile} from "react-device-detect";
 
 export const TreeView = ({root, onClickNode}) => {
   const treeViewRef = useRef();
@@ -10,6 +11,27 @@ export const TreeView = ({root, onClickNode}) => {
   const [treeNodes, setTreeNodes] = useState([])
 
   const [tree, setTree] = useState(null);
+
+  let mouseDown = false;
+  let startX, scrollLeft;
+
+  const startDragging = (e) => {
+    mouseDown = true
+    startX = e.pageX - treeViewRef.current.offsetLeft;
+    scrollLeft = treeViewRef.current.scrollLeft;
+  }
+
+  const stopDragging = (e) => {
+    mouseDown = false
+  }
+
+  const move = (e) => {
+    e.preventDefault();
+    if(!mouseDown) { return; }
+    const x = e.pageX - treeViewRef.current.offsetLeft;
+    const scroll = x - startX;
+    treeViewRef.current.scrollTo(scrollLeft - scroll, 0);
+  }
 
   const render = () => {
     let tree = new Tree(root)
@@ -37,9 +59,22 @@ export const TreeView = ({root, onClickNode}) => {
     // Add event listener to re-render tree when window is resized
     window.addEventListener("resize", render)
 
-    // Remove event listener
+    // Enable horizontal scrolling on smaller displays
+    if (window.innerWidth < 1000) {
+      treeViewRef.current.addEventListener('mousemove', move, false);
+      treeViewRef.current.addEventListener('mousedown', startDragging, false);
+      treeViewRef.current.addEventListener('mouseup', stopDragging, false);
+      treeViewRef.current.addEventListener('mouseleave', stopDragging, false);
+    }
+
+
+    // Remove event listeners
     return () => {
       window.removeEventListener("resize", render)
+      treeViewRef.current.removeEventListener('mousemove', move, false);
+      treeViewRef.current.removeEventListener('mousedown', startDragging, false);
+      treeViewRef.current.removeEventListener('mouseup', stopDragging, false);
+      treeViewRef.current.removeEventListener('mouseleave', stopDragging, false);
     }
   }, [])
 

@@ -25,6 +25,11 @@
     .tree-view{
         overflow-y: hidden;
         overflow-x: scroll;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .tree-view::-webkit-scrollbar {
+        display: none;
     }
 }
 
