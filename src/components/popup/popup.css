@@ -13,18 +13,11 @@
 }
 
 .popup-content {
-    width: 60%;
     display: block;
     pointer-events: visible;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-@media only screen and (max-width: 600px) {
-    .popup-content {
-        width: 90%
-    }
 }
 
 .popup-content.active {

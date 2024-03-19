@@ -34,6 +34,7 @@
 }
 
 .node-popup {
+    width: 60%;
     position: relative;
     background-color: #111111;
     border: solid 3px var(--primary);
@@ -41,6 +42,22 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+}
+
+@media only screen and (max-width: 700px) {
+    .node-popup {
+        width: 80%
+    }
+    .node-popup span{
+        font-size: 16px !important
+    }
+    .popup-data-grid {
+        padding: 10px !important;
+        gap: 10px !important;
+    }
+    .popup-data-field {
+        padding: 10px !important;
+    }
 }
 
 .node-popup-background {
@@ -99,7 +116,7 @@
     position: relative;
     padding: 20px;
     columns: 2;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%/1, max(200px, 100%/3)), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%/1, max(300px, 100%/3)), 1fr));
 }
 
 .popup-data-field {
@@ -111,7 +128,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 20px 20px 20px 20px;
+    padding: 20px;
     box-shadow: #00000080 0 5px 5px;
     -o-box-shadow: #00000080 0 5px 5px;
     -moz-box-shadow: #00000080 0 5px 5px;
